@@ -39,14 +39,16 @@ let fred = Giant(name: "Fred", weight: 340.0, homePlanet: "Earth")
 Will these three lines of code run? If not, why not?
 
 ```swift
-fred.name = "Brick"
-fred.weight = 999.2
-fred.homePlanet = "Mars"
+fred.name = "Brick" // yes because it's a variable
+fred.weight = 999.2 // yes because it's a variable
+fred.homePlanet = "Mars" // no because it's a constant
 ```
 
 ### Question 2
 
 Can you fix the class definition above so that it _does_ work?
+
+var homePlanet: String
 
 ### Question 3
 
@@ -73,10 +75,12 @@ bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
+// no for all of them because bilbo is declared as a constant
 
 ### Question 4
 
 Can you change the declaration of `bilbo` so that the above three lines of code _do_ work?
+yes, set bilbo to var bilbo =
 
 ### Question 5
 
@@ -89,6 +93,7 @@ jason.name = "Jason"
 ```
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
+edgar and jason are reference types so making a change to one will affect the other
 
 ### Question 6
 
@@ -99,6 +104,8 @@ var charles = Alien(name: "Charles", height: 2.25, homePlanet: "Pluto")
 var charlesFromJupiter = charles
 charlesFromJupiter.homePlanet = "Jupiter"
 ```
+
+charles will be Pluto and charlesFromJupiter will be Jupiter
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
 
@@ -121,11 +128,11 @@ struct BankAccount {
 }
 ```
 
-Does this code work? Why or why not?
+Does this code work? Why or why not? no because it's trying to change the struct properties and it's not allowed
 
 ### Question 8
 
-Can you fix the `BankAccount` struct so it _does_ work?
+Can you fix the `BankAccount` struct so it _does_ work? put mutating before func
 
 ### Question 9
 
@@ -137,7 +144,7 @@ var joeOtherAccount = joeAccount
 joeAccount.withdraw(50.0)
 ```
 
-What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
+What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why? 50.0 for joeAccount and 100.0 for joeOtherAccount because it is a copy
 
 ### Question 10
 
@@ -167,6 +174,6 @@ let library2 = library1
 library2.add(track: "Come As You Are")
 ```
 
-After this code runs, what are the contents of `library1.tracks`? What about the contents of `library2.tracks`? Why?
+After this code runs, what are the contents of `library1.tracks`? What about the contents of `library2.tracks`? Why? they are the same because it's a reference type and continues to add to the same object
 
 <a href='https://learn.co/lessons/ClassesVsStructs' data-visibility='hidden'>View this lesson on Learn.co</a>
